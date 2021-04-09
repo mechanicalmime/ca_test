@@ -4,6 +4,8 @@ class VehicleModelsController < ApplicationController
     before_action :test_authorize!, only: [:create]
 
     def create
+        build_vehicle_model
+
         if @vehicle_model.save
             render json: @vehicle_model, status: 200
         else
